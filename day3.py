@@ -7,13 +7,16 @@ file_name = "inputs/3.txt"
 with open(file_name) as f:
     text = f.read()
 
-valid = re.findall("mul+\(\d+,\d+\)", text) # part 1
-valid2 = re.findall("mul+\(\d+,\d+\)|do+\(\)|don't+\(\)", text) # part 2
+
+s1 = "mul+\(\d+,\d+\)"
+s2 = s1 + "|do+\(\)|don't+\(\)"
+
+valid = re.findall(s2, text)
 
 enabled = True
 ans = 0
 
-for i in valid2:
+for i in valid:
     if i == 'do()': 
         enabled = True
         continue
