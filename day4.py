@@ -1,7 +1,5 @@
 """AOC Day 4"""
 
-import re
-
 file_name = "inputs/4.txt"
 
 with open(file_name) as f:
