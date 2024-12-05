@@ -8,40 +8,23 @@ file_name = "inputs/5.txt"
 with open(file_name) as f:
     text = f.read().split('\n')
 
-
-
 def get_order(rules):
-    before = {}
-
-    for rule in rules:
-        before[int(rule[0])] = set()
-        before[int(rule[1])] = set()
+    before = {i: set() for i in range(10, 100)}
 
     for rule in rules:
         before[int(rule[0])].add(int(rule[1]))
     
     return before
 
-def new_list(line, before):
-    max_indices = [len(line)-1 for i in line]
+def compare(x, y):
+    if int(y) in before[int(x)]:
+        return 1
+    elif int(x) in before[int(y)]:
+        return -1
+    return 0
 
-    for val in line:
-        max_index = len(line)-1
-        for other in line:
-            if int(other) in before[int(val)]:
-                max_index -= 1
-        
-        max_indices[line.index(val)] = max_index
-    
-    lst = [0 for i in line]
-    for val in line:
-        index = line.index(val)
-        new_index = max_indices[index]
-        lst[new_index] = val
-
-    return lst
-
-
+def new_list(line):
+    return sorted(line, key=cmp_to_key(compare))
 
 s1 = []
 s2 = []
@@ -82,7 +65,7 @@ for line in s2:
         ans += int(line[int((len(line)-1)/2)])
     
     else:
-        ans2 += int(new_list(line, before)[int((len(line)-1)/2)])
+        ans2 += int(new_list(line)[int((len(line)-1)/2)])
 
 
 
