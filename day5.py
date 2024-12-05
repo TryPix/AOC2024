@@ -56,9 +56,11 @@ for line in s2:
             if rule.index(f'{a}') < rule.index(f'{b}'):
                 if line.index(f'{b}') < line.index(f'{a}'):
                     isOrdered = False
+                    break
             elif rule.index(f'{b}') < rule.index(f'{a}'):
                 if line.index(f'{a}') < line.index(f'{b}'):
                     isOrdered = False
+                    break
     
     if isOrdered: 
         ans += int(line[int((len(line)-1)/2)])
