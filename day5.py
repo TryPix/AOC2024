@@ -47,7 +47,6 @@ ans2 = 0
 
 for line in s2:
     isOrdered = True
-    new_order = [0 for i in line]
 
     for rule in s1:
         a = int(rule[0])
