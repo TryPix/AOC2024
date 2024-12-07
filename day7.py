@@ -26,9 +26,8 @@ for i in range(len(sums)):
     for value in v:
         new = []
         for prec in dp:
-            new.append(prec * value)
-            new.append(prec + value)
-            new.append(int(str(prec) + str(value)))
+            next = filter(lambda x: x <= s, [prec * value, prec + value, int(f'{prec}{value}')])
+            new.extend(next)
         dp = new
     
     if s in dp: 
