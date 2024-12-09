@@ -85,15 +85,3 @@ for index, value in string.items():
 
 print(ans)
 
-
-# n = len(lengths.keys())
-
-# for i in range(n-1, 0, -1):
-#     for index, space in spaces.items():
-#         if space >= lengths[i]:
-#             print(i, lengths[i])
-#             spaces[index] -= lengths[i]
-#             spaces[i-1] += lengths[i]
-#             break
-
-# print(spaces)
