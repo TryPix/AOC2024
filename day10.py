@@ -72,9 +72,13 @@ def bfs(s, t, adj):
     
     return count[t]
 
-ans = 0
+ans1 = 0
+ans2 = 0
 for start in starts:
     for end in ends:
-        ans += bfs(start, end, adj)
+        val = bfs(start, end, adj)
+        ans1 += 1 if val != 0 else 0
+        ans2 += bfs(start, end, adj)
 
-print(ans)
+print(ans1)
+print(ans2)
